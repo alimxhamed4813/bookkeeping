@@ -1,5 +1,3 @@
-"""Positioned text read from a PDF page."""
-
 from __future__ import annotations
 
 from dataclasses import dataclass

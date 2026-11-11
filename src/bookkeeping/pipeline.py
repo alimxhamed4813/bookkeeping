@@ -1,5 +1,3 @@
-"""PDF in, CSV out: read the page, rebuild the table, check it, write it."""
-
 from __future__ import annotations
 
 import csv

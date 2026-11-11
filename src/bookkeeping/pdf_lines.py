@@ -1,11 +1,3 @@
-"""Read a PDF into rows of positioned words.
-
-Text-based PDFs are read straight from their text layer. Pages with no text layer
-(scans, photos) are rendered and run through Tesseract OCR. Both paths produce the
-same `Line`/`Word` shapes in PDF points, so the statement parser doesn't need to
-know which one was used.
-"""
-
 from __future__ import annotations
 
 from collections import defaultdict

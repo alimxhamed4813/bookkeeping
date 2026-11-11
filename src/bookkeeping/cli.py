@@ -1,10 +1,3 @@
-"""Command line entry point: `bookkeeping statement.pdf [-o statement.csv]`.
-
-Exit codes: 0 = CSV written and the totals check out (or there is nothing to check),
-1 = no CSV written (missing file, unreadable PDF, no table, OCR unavailable),
-2 = CSV written, but the table does not add up. See the warnings.
-"""
-
 from __future__ import annotations
 
 import argparse

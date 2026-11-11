@@ -1,18 +1,3 @@
-"""Rebuild a statement's transaction table from positioned words.
-
-The table's own header row defines the output columns. Each word on the
-lines below it is placed into a column by where it sits on the page:
-
-* Amounts are right-aligned under their header, so an amount goes to the money
-  column whose header ends nearest to where the amount ends.
-* Other text is left-aligned, so it goes to the text column it starts under.
-
-A line starts a new row if it has a date in the first column or an amount in a
-money column. Indented text directly below a row with no date or amount, such as a
-city or "USD 49.99 @ 1.371874", is appended to that row's description. Anything
-else (page headers, footers, "Continued on next page") is skipped.
-"""
-
 from __future__ import annotations
 
 import re

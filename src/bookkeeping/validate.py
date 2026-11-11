@@ -1,18 +1,3 @@
-"""Check that an extracted table adds up, and repair amounts that OCR misread.
-
-Two kinds of statement are understood, based on the column names:
-
-* Running balance (withdrawal/debit, deposit/credit and balance columns): each row's
-  balance must equal the previous balance minus money out plus money in.
-* Single amount column (credit cards): the first row is the previous balance and the last
-  row is the new balance. Previous balance + charges - credits ("CR") must equal the new balance.
-
-If a row's amount disagrees with the balances, but the balances on both sides of it agree with
-each other, the amount was misread (typically by OCR). The cell is corrected to the amount the
-balances prove, and a warning is reported. Mismatches that can't be explained are reported,
-never hidden.
-"""
-
 from __future__ import annotations
 
 from dataclasses import dataclass, field
