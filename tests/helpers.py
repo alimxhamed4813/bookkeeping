@@ -1,18 +1,14 @@
-"""Build fake statement lines so parser logic can be tested without a PDF."""
+"""Build fake page lines so table extraction can be tested without a PDF."""
 
 from __future__ import annotations
 
-from decimal import Decimal
-
 from bookkeeping.models import Line, Word
-from bookkeeping.statements import parse_lines
 
 CHAR_WIDTH = 5.0
-# Right edges of the money columns, matching the header below.
-OUT_RIGHT, IN_RIGHT, BALANCE_RIGHT = 403.0, 479.0, 558.0
 
 
 def words_at(text: str, x0: float, top: float) -> list[Word]:
+    """Left-aligned words starting at x0, one space apart."""
     words, x = [], x0
     for token in text.split():
         words.append(Word(token, x, x + len(token) * CHAR_WIDTH, top))
@@ -20,49 +16,54 @@ def words_at(text: str, x0: float, top: float) -> list[Word]:
     return words
 
 
-def right_aligned(text: str, right: float, top: float) -> Word:
-    return Word(text, right - len(text) * CHAR_WIDTH, right, top)
+def right_aligned(text: str, right: float, top: float) -> list[Word]:
+    """Words ending at `right`, e.g. an amount (and 'CR') under a right-aligned header."""
+    width = len(text) * CHAR_WIDTH
+    return words_at(text, right - width, top)
 
 
-def chequing_statement(rows, opening="1,000.00", closing=None, page=1):
-    """rows: (date, description, withdrawal, deposit, balance); amounts as printed strings or None."""
-    top = 20.0
-    lines = []
+class Page:
+    """Accumulates lines top to bottom, like a printed page."""
 
-    def add(words):
-        nonlocal top
-        lines.append(Line(words=words, page=page))
-        top += 15
+    def __init__(self, page: int = 1, top: float = 20.0):
+        self.page, self.top, self.lines = page, top, []
 
-    add(words_at("Test Bank", 54, top))
-    add(words_at("Business Chequing Account Statement", 54, top))
-    add(words_at("TEST CO LTD.", 54, top) + words_at("Account: 123-456", 454, top))
-    add(words_at("Statement period: Jan 1, 2026 to Jan 31, 2026", 366, top))
-    add(
-        words_at("Date", 54, top)
-        + words_at("Description", 104, top)
-        + [Word("Withdrawals", 337, 390, top), Word("($)", 392, OUT_RIGHT, top)]
-        + [Word("Deposits", 427, 465, top), Word("($)", 468, IN_RIGHT, top)]
-        + [Word("Balance", 510, 544, top), Word("($)", 547, BALANCE_RIGHT, top)]
+    def add(self, *parts, gap: float = 15.0) -> "Page":
+        """parts: ("text", x0) for left-aligned text, ("text", "right", x1) for right-aligned."""
+        words = []
+        for part in parts:
+            if len(part) == 3:
+                words += right_aligned(part[0], part[2], self.top)
+            else:
+                words += words_at(part[0], part[1], self.top)
+        self.lines.append(Line(words=words, page=self.page))
+        self.top += gap
+        return self
+
+
+# Column positions for a chequing-style table: Date | Description | Withdrawals | Deposits | Balance
+DATE_X, DESC_X, OUT_R, IN_R, BAL_R = 54, 104, 403, 479, 558
+
+
+def chequing_header(page: Page) -> Page:
+    return page.add(
+        ("Date", DATE_X),
+        ("Description", DESC_X),
+        ("Withdrawals ($)", 330),
+        ("Deposits ($)", 420),
+        ("Balance ($)", 503),
     )
-    add(words_at("Jan 01 Opening balance", 54, top) + [right_aligned(opening, BALANCE_RIGHT, top)])
-    for date, description, out, inn, balance in rows:
-        words = words_at(date, 54, top) + words_at(description, 104, top)
-        if out:
-            words.append(right_aligned(out, OUT_RIGHT, top))
-        if inn:
-            words.append(right_aligned(inn, IN_RIGHT, top))
-        if balance:
-            words.append(right_aligned(balance, BALANCE_RIGHT, top))
-        add(words)
-    if closing:
-        add(words_at("Jan 31 Closing balance", 54, top) + [right_aligned(closing, BALANCE_RIGHT, top)])
-    return lines
 
 
-def parse(lines, name="test.pdf", sha="0" * 64):
-    return parse_lines(lines, source_file=name, file_sha256=sha)
-
-
-def D(x) -> Decimal:
-    return Decimal(x)
+def chequing_row(page: Page, date: str, description: str, out: str = "", inn: str = "", balance: str = "", gap=15.0):
+    parts = []
+    if date:
+        parts.append((date, DATE_X))
+    parts.append((description, DESC_X))
+    if out:
+        parts.append((out, "right", OUT_R))
+    if inn:
+        parts.append((inn, "right", IN_R))
+    if balance:
+        parts.append((balance, "right", BAL_R))
+    return page.add(*parts, gap=gap)
