@@ -144,12 +144,3 @@ There are 79 tests:
   default output location, `-o`, missing and non-PDF files, a PDF with no table, missing
   Tesseract, and the exit codes.
 - **Parsing** ([`tests/test_parsing.py`](tests/test_parsing.py)). Amount and date recognition, including OCR quirks.
-
-The scanned-PDF tests are skipped if Tesseract isn't installed.
-
-## Limitations and next steps
-
-- So far, the tool has only been tested on the three sample layouts. It needs a header row that
-  names its columns, and amounts that are right-aligned under their headers.
-- It handles one table per PDF.
-- Part 1 adds cheques (1001–1010), receipts and bills, and duplicate detection across documents.
