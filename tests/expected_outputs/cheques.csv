@@ -1,0 +1,11 @@
+cheque_number,date,payee,amount,amount_in_words,memo,bank,bank_address
+1001,2026-08-04,Northside Aggregates Inc,1250.00,One thousand two hundred fifty and 00/100,Gravel delivery Jul 28,Maple Northern Bank,"100 Maple Avenue, Anytown, ON L0L 0L1"
+1002,2026-08-06,Bayview Equipment Rental Ltd,3410.75,Three thousand four hundred ten and 75/100,Excavator Rental July,Lakeshore Trust,"200 Lakeshore Boulevard, Sampleville, ON L0L 1L1"
+1003,2026-08-10,Lakeshore Hardware Ltd,587.40,Five hundred eighty-seven and 40/100,Supplies Invoice 4471,Prairie Community Credit Union,"300 Prairie Road, Testburg, MB R0R 2R2"
+1004,2026-08-12,Harbour Fuel Services,2075.00,Two thousand seventy-five and 00/100,Diesel Account 2213,Maple Northern Bank,"100 Maple Avenue, Anytown, ON L0L 0L1"
+1005,2026-08-14,Crescent Insurance Brokers,918.66,Nine hundred eighteen and 66/100,Premium Aug,Lakeshore Trust,"200 Lakeshore Boulevard, Sampleville, ON L0L 1L1"
+1006,2026-08-17,Pinecrest Trucking Co,4500.00,Four thousand five hundred and 00/100,Haulage week 32,Prairie Community Credit Union,"300 Prairie Road, Testburg, MB R0R 2R2"
+1007,2026-08-19,Ridgeway Printing Inc,329.99,Three hundred twenty-nine and 99/100,Job Cards x 2,Maple Northern Bank,"100 Maple Avenue, Anytown, ON L0L 0L1"
+1008,2026-08-21,Summit Safety Supplies,1746.20,One thousand seven hundred forty-six and 20/100,PPE Stock,Lakeshore Trust,"200 Lakeshore Boulevard, Sampleville, ON L0L 1L1"
+1009,2026-08-25,Greenfield Waste Removal,660.00,Six hundred sixty and 00/100,Bin Rental,Prairie Community Credit Union,"300 Prairie Road, Testburg, MB R0R 2R2"
+1010,2026-08-28,Millbrook Concrete Ltd,2240.35,Two thousand two hundred forty and 35/100,Concrete Jobsite 7,Maple Northern Bank,"100 Maple Avenue, Anytown, ON L0L 0L1"

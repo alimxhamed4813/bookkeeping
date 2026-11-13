@@ -1,0 +1,17 @@
+receipt_number,vendor,location,date,item_1,item_1_amount,item_2,item_2_amount,subtotal,tax,tax_amount,total,paid_by,note
+R01,FLOURWORKS SUPPLY CO,"Mississauga, ON",2026-09-06,Bread flour 25kg,447.40,Yeast and bakery sundries,298.26,745.66,HST 13%,96.94,842.60,Visa ending 0000 (approved),
+R02,FLOURWORKS SUPPLY CO,"Mississauga, ON",2026-09-06,Bread flour 25kg,447.40,Yeast and bakery sundries,298.26,745.66,HST 13%,96.94,842.60,Visa ending 0000 (approved),
+R03,FLOURWORKS SUPPLY CO,"Mississauga, ON",2026-10-02,Bread flour 25kg,423.80,Yeast and bakery sundries,282.53,706.33,HST 13%,91.82,798.15,Visa ending 0000 (approved),
+R04,FUEL STOP 33,"Toronto, ON",2026-09-17,Unleaded fuel,46.75,Fuel - premium,31.16,77.91,HST 13%,10.13,88.04,Visa ending 0000 (approved),
+R05,FUEL STOP 33,"Toronto, ON",2025-12-22,Unleaded fuel,49.96,Fuel - premium,33.31,83.27,HST 13%,10.83,94.10,Debit / cheque (bank account),
+R06,FUEL STOP 33,"Toronto, ON",2026-01-12,Unleaded fuel,54.08,Fuel - premium,36.05,90.13,HST 13%,11.72,101.85,Debit / cheque (bank account),
+R07,PACKAGING PLUS INC,"Brampton, ON",2026-09-14,Takeout containers,69.00,Bags and lids,46.00,115.00,HST 13%,14.95,129.95,Visa ending 0000 (approved),
+R08,PACKAGING PLUS INC,"Brampton, ON",2026-09-15,Takeout containers,17.26,Bags and lids,11.50,28.76,HST 13%,3.74,32.50,Visa ending 0000 (approved),
+R09,OVEN REPAIR SERVICES,"Etobicoke, ON",2026-09-25,Service call,348.01,Parts and labour,232.01,580.02,HST 13%,75.40,655.42,Visa ending 0000 (approved),
+R10,RESTAURANT DEPOT,"Scarborough, ON",2026-09-29,Cooking oil case,207.71,Paper goods and sundries,138.47,346.18,HST 13%,45.00,391.18,Visa ending 0000 (approved),
+R11,GREEN P,"Toronto, ON",2026-09-23,Parking - hourly,6.37,Parking tax,4.25,10.62,HST 13%,1.38,12.00,Visa ending 0000 (approved),
+R12,HOME SUPPLY CENTRE #214,"Toronto, ON",2025-12-16,Fasteners and hardware,165.91,Paint and supplies,110.61,276.52,HST 13%,35.95,312.47,Debit / cheque (bank account),
+R13,OFFICE DEPOT 1182,"Toronto, ON",2026-01-06,Paper and binders,31.20,Pens and desk supplies,20.80,52.00,HST 13%,6.76,58.76,Debit / cheque (bank account),
+R14,DAIRY FARMS WHOLESALE,"Guelph, ON",2026-09-19,Milk and cream case,642.65,Cheese and butter,428.44,1071.09,HST 13%,139.24,1210.33,Visa ending 0000 (approved),
+R15,FUEL STOP 33,"Toronto, ON",2026-01-12,Unleaded fuel,54.08,Fuel - premium,36.05,90.13,HST 13%,11.72,101.85,Debit / cheque (bank account),
+R16,ONTARIO EQUIPMENT LEASING,"Mississauga, ON",2026-10-15,Equipment lease - monthly,300.00,Service fee,200.00,500.00,HST 13%,65.00,565.00,,INVOICE - amount due in 30 days

@@ -1,0 +1,3 @@
+receipt_number,duplicate_of,reason
+R02,R01,"Same vendor, date, items and total"
+R15,R06,"Same vendor, date, items and total"
